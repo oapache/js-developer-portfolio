@@ -1,73 +1,63 @@
+{
+ "name": "Pablo Henrique",
+ "photo": "https://avatars.githubusercontent.com/u/160090075?v=4",
+ "job": "Developer Full Stack",
+ "location": "São Paulo - SP",
+ "phone": "(11) 947920549",
+ "email": "pablohenrique2k2@gmail.com",
+ "skills": {
+   "hardSkills": [
+     {
+       "name": "Nodejs",
+       "logo": "https://raw.githubusercontent.com/digitalinnovationone/js-developer-portfolio/main/data/imgs/nodejs.png"
+     },
+     {
+       "name": "js",
+       "logo": "https://raw.githubusercontent.com/digitalinnovationone/js-developer-portfolio/main/data/imgs/js.png"
+     },
+     {
+       "name": "CSS",
+       "logo": "https://raw.githubusercontent.com/digitalinnovationone/js-developer-portfolio/main/data/imgs/css.png"
+     },
+     {
+       "name": "Mongodb",
+       "logo": "https://raw.githubusercontent.com/digitalinnovationone/js-developer-portfolio/main/data/imgs/mongodb.png"
+     },
+     {
+       "name": "Postgresql",
+       "logo": "https://raw.githubusercontent.com/digitalinnovationone/js-developer-portfolio/main/data/imgs/postgresql.png"
+     }
+   ],
+   "softSkills": [
+     "Liderança",
+     "Trabalho em equipe",
+     "Agile",
+     "Adaptabilidade e empatia"
+   ]
+ },
+ "languages": [
+   "Português BR",
+   "Inglês (B1)",
+   "Espanhol (Básico)"
+ ],
+ "portfolio": [
+  {
+    "name": "Curso Ministrado na DIO para a criação de uma Landing Page",
+    "url": "https://github.com/oapache/trilha-css-desafio-01",
+    "github": true
+  },
+   {
+     "name": "Curso Ministrado na DIO para a criação de uma Pokedex",
+     "url": "https://github.com/oapache/js-developer-pokedex",
+     "github": true
+   },
+   {
+     "name": "Curso Ministrado na DIO para a criação de uma página de portfolio",
+     "url": "https://github.com/oapache/js-developer-portfolio",
+     "github": true
+   }
+   
+ ]
 
-function updateProfileInfo(profileData) {
-    const photo = document.getElementById('profile.photo')
-    photo.src = profileData.photo
-    photo.alt = profileData.name
-
-    const name = document.getElementById('profile.name')
-    name.innerText = profileData.name
-
-    const job = document.getElementById('profile.job')
-    job.innerText = profileData.job
-
-    const location = document.getElementById('profile.location')
-    location.innerText = profileData.location
-
-    const phone = document.getElementById('profile.phone')
-    phone.innerText = profileData.phone
-    phone.href = `tel:${profileData.phone}`
-
-    const email = document.getElementById('profile.email')
-    email.innerText = profileData.email
-    email.href = `mailto:${profileData.email}`
+ 
 }
-
-function updateSoftSkills(profileData) {
-    const softSkills = document.getElementById('profile.skills.softSkills')
-    softSkills.innerHTML = profileData.skills.softSkills.map(skill => `<li>${skill}</li>`).join('')
-}
-
-function updateHardSkills(profileData) {
-    const hardSkills = document.getElementById('profile.skills.hardSkills')
-    hardSkills.innerHTML = profileData.skills.hardSkills.map(skill => `<li><img src="${skill.logo}" alt="${skill.name}" title="${skill.name}"></li>`).join('')
-}
-
-function updateLanguages(profileData) {
-    const languages = document.getElementById('profile.languages')
-    languages.innerHTML = profileData.languages.map(language => `<li>${language}</li>`).join('')
-}
-
-function updatePortfolio(profileData) {
-    const portfolio = document.getElementById('profile.portfolio')
-    portfolio.innerHTML = profileData.portfolio.map(project => {
-        return `
-            <li>
-                <h3 ${project.github ? 'class="github"' : ''}>${project.name}</h3>
-                <a href="${project.url}" target="_blank">${project.url}</a>
-            </li>
-        `
-    }).join('')
-}
-
-function updateProfessionalExperience(profileData) {
-    const professionalExperience = document.getElementById('profile.professionalExperience')
-    professionalExperience.innerHTML = profileData.professionalExperience.map(experience => {
-        return `
-            <li>
-                <h3 class="title">${experience.name}</h3>
-                <p class="period">${experience.period}</p>
-                <p>${experience.description}</p>
-            </li>
-        `
-    }).join('')
-}
-
-(async () => {
-    const profileData = await fetchProfileData()
-    updateProfileInfo(profileData)
-    updateSoftSkills(profileData)
-    updateHardSkills(profileData)
-    updateLanguages(profileData)
-    updatePortfolio(profileData)
-    updateProfessionalExperience(profileData)
-})()
